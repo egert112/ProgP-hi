@@ -11,6 +11,18 @@ public class Massiivid {
     //ning teiseks vähim
     public static int[] piirid(int[]arvud){
         int[] vastus=new int[2];
+        if (arvud==null){
+            throw new RuntimeException("parameetri väärtus null");
+        }
+        if(arvud.length==0){
+            throw new RuntimeException("parameetriks tühi massiiv");
+        }
+        vastus[0]=vastus[1]=vastus[0];
+        for(int arv: arvud){
+            if(arv<vastus[0]){vastus[0]=arv;}
+            if(arv>vastus[1]){vastus[1]=arv;}
+        }
+        return vastus;
       
         
     }
@@ -24,8 +36,11 @@ public class Massiivid {
 public static double keskmine(int[] arvud){
     return summa(arvud)*1.0/arvud.length;
 }
-  public static void main (String[]arg){
-  int[] pikkused=[176, 163, 158 171, 169];
+  public static void main(String[] arg){ 
+    int[] pikkused={176, 163, 158, 171, 169}; 
+    int[] t=piirid(pikkused);
+      
+    System.out.println(t[0]+" "+t[1]);
     System.out.println(summa(pikkused));
     System.out.println(keskmine(pikkused));
     System.out.println("kokku: "+pikkused[pikkused.length-1]);
@@ -41,6 +56,6 @@ System.out.println(summa);
 summa=0;
 for(int pikkus: pikkused) {summa+=pikkus;}
 System.out.println(summa);
-System.out.println
+System.out.println*/
 }
 }
